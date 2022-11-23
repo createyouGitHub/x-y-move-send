@@ -1,0 +1,27 @@
+{
+    "name": "X-Y-移動(発信機)",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "JoyBit": "github:alsrobot-microbit-makecode-packages/alsrobotjoybit#1.1.1",
+        "joystickbit": "github:tinkertanker/pxt-joystickbit#v1.0.1"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "5.0.12",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
