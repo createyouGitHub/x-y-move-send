@@ -69,8 +69,6 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 basic.showIcon(IconNames.Silly)
 radio.setGroup(1)
-pins.digitalWritePin(DigitalPin.P4, input.acceleration(Dimension.X))
-pins.digitalWritePin(DigitalPin.P5, input.acceleration(Dimension.Y))
 basic.forever(function () {
     radio.sendValue("X", Math.constrain(input.acceleration(Dimension.X), -1023, 1023))
     radio.sendValue("Y", Math.constrain(input.acceleration(Dimension.Y), -1023, 1023))
