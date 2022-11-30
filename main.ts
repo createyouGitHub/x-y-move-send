@@ -7,6 +7,8 @@ radio.onReceivedNumber(function (receivedNumber) {
             # . . # .
             . . . . #
             `)
+        basic.pause(500)
+        basic.clearScreen()
     } else if (receivedNumber == 8) {
         basic.showLeds(`
             . . # . .
@@ -15,6 +17,8 @@ radio.onReceivedNumber(function (receivedNumber) {
             . . # . .
             . . # . .
             `)
+        basic.pause(500)
+        basic.clearScreen()
     } else if (receivedNumber == 9) {
         basic.showLeds(`
             . # # # #
@@ -23,6 +27,8 @@ radio.onReceivedNumber(function (receivedNumber) {
             . # . . #
             # . . . .
             `)
+        basic.pause(500)
+        basic.clearScreen()
     } else if (receivedNumber == 4) {
         basic.showLeds(`
             . . # . .
@@ -31,6 +37,8 @@ radio.onReceivedNumber(function (receivedNumber) {
             . # . . .
             . . # . .
             `)
+        basic.pause(500)
+        basic.clearScreen()
     } else if (receivedNumber == 6) {
         basic.showLeds(`
             . . # . .
@@ -39,6 +47,8 @@ radio.onReceivedNumber(function (receivedNumber) {
             . . . # .
             . . # . .
             `)
+        basic.pause(500)
+        basic.clearScreen()
     } else if (receivedNumber == 1) {
         basic.showLeds(`
             . . . . #
@@ -47,6 +57,8 @@ radio.onReceivedNumber(function (receivedNumber) {
             # # . . .
             # # # # .
             `)
+        basic.pause(500)
+        basic.clearScreen()
     } else if (receivedNumber == 2) {
         basic.showLeds(`
             . . # . .
@@ -55,6 +67,8 @@ radio.onReceivedNumber(function (receivedNumber) {
             . # # # .
             . . # . .
             `)
+        basic.pause(500)
+        basic.clearScreen()
     } else if (receivedNumber == 3) {
         basic.showLeds(`
             # . . . .
@@ -63,13 +77,39 @@ radio.onReceivedNumber(function (receivedNumber) {
             . . . # #
             . # # # #
             `)
-    } else {
-        basic.showIcon(IconNames.Silly)
+        basic.pause(500)
+        basic.clearScreen()
     }
 })
 basic.showIcon(IconNames.Silly)
 radio.setGroup(1)
 basic.forever(function () {
-    radio.sendValue("X", Math.constrain(input.acceleration(Dimension.X), -1023, 1023))
-    radio.sendValue("Y", Math.constrain(input.acceleration(Dimension.Y), -1023, 1023))
+    radio.sendValue("X", pins.map(
+    pins.analogReadPin(AnalogPin.P1),
+    0,
+    828,
+    828,
+    -828
+    ))
+    radio.sendValue("Y", pins.map(
+    pins.analogReadPin(AnalogPin.P0),
+    0,
+    828,
+    828,
+    -828
+    ))
+    radio.sendValue("左右", pins.map(
+    pins.analogReadPin(AnalogPin.P2),
+    0,
+    826,
+    -826,
+    826
+    ))
+    radio.sendValue("上下", pins.map(
+    pins.analogReadPin(AnalogPin.P3),
+    280,
+    840,
+    -840,
+    840
+    ))
 })
